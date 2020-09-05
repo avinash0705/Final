@@ -1,25 +1,61 @@
-<div class="col-sm-6 offset-sm-3 container">
+<div class="container">
+    <div class="row">
+        <div class="col-3">
 
-    <h2>Login</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="Email">Email</label>
-            <input type="text" formControlName="email" class="form-control" />
-            <div  class="invalid-feedback">
-                <div >email is required</div>
-            </div>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" formControlName="password" class="form-control"  />
-            <div  class="invalid-feedback">
-                <div >Password is required</div>
-            </div>
-        </div>
-        <div class="form-group login" >
-            <button  type="submit" class="btn btn-primary">Login</button>
-            <a [routerLink]="['/register']" class="btn btn-link">Register</a>
-        </div>
-    </form>
+        <div class="col-6">
+            <form (ngSubmit)="onSubmit()" #SignInForm="ngForm">
+                {{model.email}}
+                {{model.password}}
+                <div class="form-group">
+                    <label for="email">email</label>
+                    <input type="email" class="form-control" id="email"
+                        required
+                        [(ngModel)]="model.email" name="email"
+                        #email="ngModel">
+                    <div [hidden]="email.valid || email.pristine"
+                        class="alert alert-danger">
+                    Email is required
+                    </div>
+                </div>
     
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password"
+                        [(ngModel)]="model.password" name="password" #password="ngModel">
+                        <div [hidden]="password.valid || password.pristine"
+                        class="alert alert-danger">
+                        password error
+                    </div>
+                </div>
+    
+                <!-- <div class="form-group">
+                    <label for="power">Hero Power</label>
+                    <select class="form-control" id="power"
+                            required
+                            [(ngModel)]="model.power" name="power"
+                            #power="ngModel">
+                    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                    </select>
+                    <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+                    Power is required
+                    </div>
+                </div> -->
+    
+                <button type="submit" class="btn btn-success" [disabled]="!SignInForm.form.valid">Submit</button>
+                
+                <button class="btn"[routerLink]="['/signUp']">SignUp</button>
+                
+    
+                </form>
+        </div>
+            
+            <div class="col-3">
+            
+            </div>
     </div>
+</div>
+
+
+
+ 

@@ -1,43 +1,43 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-// import { User } from './../../models/User';
+import { Component } from '@angular/core';
+
+import { FormsModule } from '@angular/forms';
+
 
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { User } from 'src/models/User';
+
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent  {
 
-  loginForm: FormGroup;
-  user = new User('', '');
-  constructor( private formBuilder: FormBuilder, private router: Router) { }
+  model = new User( 'a@b.com', '');
 
-  ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
-  });
+
+
+  onSubmit()
+  { 
+
+     // we will send this data to backend  but now we are displaying the console only
+
+    console.log(this.model);
+
+   
+
+
+
+    this.newform();
   }
 
-  onSubmit() {
-    this.user.email = this.loginForm.controls.email.value;
-    this.user.password = this.loginForm.controls.password.value;
-
-    console.log(this.user);
-
-    // this.userService.login(this.user)
-    // .subscribe(
-    //   data => {
-    //             console.log('Success'),
-    //             this.router.navigateByUrl('/home');
-    //           },
-    //   error => console.log( 'Error', error)
-    // );
-
+  newform()
+  {
+   
+      this.model = new User( 'a@b.com', '');
+    
   }
+
 }
-}
+

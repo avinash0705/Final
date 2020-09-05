@@ -9,6 +9,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { DoctorHomeComponent } from './doctor-home/doctor-home.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
