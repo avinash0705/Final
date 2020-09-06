@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
+# To start this project
+1. clone this project by typing this into the command line or terminal
+   "git clone https://github.com/avinash0705/Final.git"
+2. open the project in vscode or any ide and then in terminal run "npm install"
+
+3. After that run "ng serve"
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
