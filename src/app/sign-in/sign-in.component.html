@@ -1,14 +1,14 @@
 <div class="container">
-    <div class="row">
-        <div class="col-3">
+    <div class="row" style="margin-top: 20vh;">
+        <div class="col-4">
 
         </div>
-        <div class="col-6">
+        <div class="col-4" style="    border-radius: 2vh;
+        background-color: cadetblue;box-shadow: 5px 4px 5px 4px #888888;">
             <form (ngSubmit)="onSubmit()" #SignInForm="ngForm">
-                {{model.email}}
-                {{model.password}}
+                
                 <div class="form-group">
-                    <label for="email">email</label>
+                    <label for="email">Email</label>
                     <input type="email" class="form-control" id="email"
                         required
                         [(ngModel)]="model.email" name="email"
@@ -21,12 +21,12 @@
     
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password"
+                    <input type="password" class="form-control"   required minlength="4" id="password"
                         [(ngModel)]="model.password" name="password" #password="ngModel">
-                        <div [hidden]="password.valid || password.pristine"
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)"
                         class="alert alert-danger">
-                        password error
-                    </div>
+                        password invalid min 4 char
+                        </div>
                 </div>
     
                 <!-- <div class="form-group">
@@ -50,7 +50,7 @@
                 </form>
         </div>
             
-            <div class="col-3">
+            <div class="col-4">
             
             </div>
     </div>
